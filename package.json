@@ -1,0 +1,19 @@
+{
+  "name": "jerry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha **/*.spec.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "sinon": "^7.2.2"
+  },
+  "engines": {
+    "node": ">=8.0.0 <11.0.0"
+  }
+}
