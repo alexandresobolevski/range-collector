@@ -77,7 +77,8 @@ module.exports = class RangeCollection {
 
     const startRemovingAtIndex = this.findIndexOfRnage(rangeToRemove);
 
-    let i = startRemovingAtIndex - 1;
+    // Do not start at index lower than 0
+    let i = startRemovingAtIndex - 1 < 0 ? 0 : startRemovingAtIndex - 1;
     let remainder = rangeToRemove;
 
     while(this.ranges[i] && remainder[1] > this.ranges[i][0]) {
