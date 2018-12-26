@@ -7,5 +7,5 @@ $ npm i
 $ npm run test
 ```
 
-RangeCollection class is in /utils/RangeCollection.js
-RangeCollection unit tests are in /utils/RangeCollection.spec.js
+- RangeCollection class is in /utils/RangeCollection.js
+- RangeCollection unit tests are in /utils/RangeCollection.spec.js
