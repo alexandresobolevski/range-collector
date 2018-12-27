@@ -59,8 +59,8 @@ describe('provided tests', () => {
   it('review question', () => {
     rc.add([1, 5]);
     rc.add([10, 20]);
-    rc.add([6, 8]);
+    rc.add([6, 11]);
     rc.print();
-    outputInterface.args[0][0].should.equal('[1, 5) [6, 8) [10, 20)');
+    outputInterface.args[0][0].should.equal('[1, 5) [6, 20)');
   });
 });

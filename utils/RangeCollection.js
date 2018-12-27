@@ -43,7 +43,6 @@ module.exports = class RangeCollection {
    */
   add(newRange = []) {
     this.validateInputRange(newRange);
-
     // insert new range at index
     if (!this.ranges.length) {
       this.ranges = [newRange];
@@ -54,10 +53,16 @@ module.exports = class RangeCollection {
 
     this.ranges.splice(insertIndex, 0, newRange);
 
-    let i = insertIndex-1;
+    let i = insertIndex;
+    // merge next ranges while the next lower bound is smaller than current higher bound (intersection)
     while(this.ranges[i] && this.ranges[i+1] && this.ranges[i][1] >= this.ranges[i+1][0]) {
       this.ranges[i][1] = this.ranges[i][1] > this.ranges[i+1][1] ? this.ranges[i][1] : this.ranges[i+1][1];
       this.ranges.splice(i+1, 1);
+    }
+    // merge previous ranges while the previous higher bound is higher than current lower bound (intersection)
+    while(this.ranges[i] && this.ranges[i-1] && this.ranges[i][0] <= this.ranges[i-1][1]) {
+      this.ranges[i-1][1] = this.ranges[i][1] >= this.ranges[i-1][1] ? this.ranges[i][1] : this.ranges[i-1][1];
+      this.ranges.splice(i, 1);
     }
 
     return this;
