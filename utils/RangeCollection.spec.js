@@ -9,7 +9,7 @@ let outputInterface;
 
 describe('provided tests', () => {
 
-  before(() => {
+  beforeEach(() => {
     outputInterface = sinon.stub();
     rc = new RangeCollection({ outputInterface });
   });
@@ -54,5 +54,13 @@ describe('provided tests', () => {
     rc.remove([3, 19]);
     rc.print();
     outputInterface.args[9][0].should.equal('[1, 3) [19, 21)');
+  });
+
+  it('review question', () => {
+    rc.add([1, 5]);
+    rc.add([10, 20]);
+    rc.add([6, 8]);
+    rc.print();
+    outputInterface.args[0][0].should.equal('[1, 5) [6, 8) [10, 20)');
   });
 });
