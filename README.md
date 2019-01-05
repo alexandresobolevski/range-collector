@@ -1,5 +1,10 @@
 # Range Collector
 
+![Build Status](https://img.shields.io/circleci/project/github/alexandresobolevski/range-collector/master.svg)
+![Downloads](https://img.shields.io/npm/dt/range-collector.svg)
+
+Collect and remove ranges. Automatically merges or splits up ranges collected.
+
 ### Usage
 
 ```javascript
